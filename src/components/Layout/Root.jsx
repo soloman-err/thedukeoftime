@@ -9,14 +9,14 @@ const Root = () => {
     return (
         <div className='w-[90%] lg:w-[70%] mx-auto'>
             <Header></Header>
-            <section className='flex flex-row gap-3 text-center mt-5'>
-                <div className='w-[20%]'>
+            <section className='flex flex-col md:flex md:flex-row gap-3 text-center mt-5'>
+                <div className='md:w-[20%] order-1 md:order-1'>
                     <LeftNav></LeftNav>
                 </div>
-                <div className='w-[60%]'>
+                <div className='md:w-[60%] order-3 md:order-2'>
                     <Outlet></Outlet>
                 </div>
-                <div className='w-[20%]'>
+                <div className='md:w-[20%] order-2 md:order-3 hidden md:static md:flex md:flex-col'>
                     <RightNav></RightNav>
                 </div>
             </section>

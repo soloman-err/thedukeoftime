@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import Login from "../Authentication/Login";
+import Register from "../Authentication/Register";
 import Business from "../Categories/Business";
 import Community from "../Categories/Community";
 import Policy from "../Categories/Policy";
@@ -21,7 +23,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <Category></Category>
+                element: <Category></Category>,
+                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
             },
             {
                 path: 'world',
@@ -52,6 +55,14 @@ const router = createBrowserRouter([
                 element: <Policy></Policy>
             }
         ]
+    },
+    {
+        path: 'login',
+        element: <Login></Login>
+    },
+    {
+        path: 'register',
+        element: <Register></Register>
     }
 ]);
 

@@ -1,37 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import logo from '../../assets/dukeoftime.png'
-import { FaBars, FaUserCircle } from 'react-icons/fa'
+import { FaBars, FaCloudSun, FaDiscord, FaLinkedin, FaYahoo } from 'react-icons/fa'
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import Marquee from 'react-fast-marquee';
 
 const Header = () => {
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:8000/categories')
-            .then((res) => res.json())
-            .then((data) => setCategories(data))
-            .catch((error) => console.log(error))
-    }, [])
 
     return (
         <>
             {/* Header */}
-            <div className='flex items-center justify-between mt-2 px-2 border-b'>
-                <FaBars size={22} />
-                <img className='w-[250px]' src={logo} alt="dukeoftime-logo" />
-                <div className='flex items-center gap-2'>
-                    <FaUserCircle size={22} />
-                    {/* <button className='bg-slate-200 px-2 py-1 font-bold'>Login</button> */}
+            <div className='md:flex justify-between py-2 border-b border-slate-300 hidden md:static'>
+                <div className='flex gap-2 items-center'>
+                    <FaLinkedin size={20} />
+                    <FaDiscord size={20} />
+                    <FaYahoo size={20} />
                 </div>
+                <div className='flex gap-2'>
+                    <Link to='/login'>
+                        <button className='border-2 px-2 border-slate-900 font-bold hover:shadow-sm'>Login</button>
+                    </Link>
+                    <Link to='/register'>
+                        <button className='border-2 px-2 border-slate-900 font-bold hover:shadow-sm'>Register</button>
+                    </Link>
+                </div>
+            </div>
+            <div className='flex flex-row-reverse items-center justify-between md:justify-center mt-2 md:px-2'>
+                <FaBars className='md:hidden' size={22} />
+                <Link to='/'>
+                    <img className='w-[200px] md:w-[250px]' src={logo} alt="dukeoftime-logo" />
+                </Link>
+                {/* <div className='flex items-center gap-2'>
+                    <button className='bg-slate-200 px-2 py-1 font-bold'>Login</button>
+                </div> */}
             </div>
 
             {/* Moment */}
-            <div className='text-center text-xs mt-2 font-bold'>
+            <div className='flex gap-2 items-center justify-center text-center text-xs mt-2 font-bold'>
                 {
                     moment().format('dddd, DD MMMM YYYY')
+
                 }
+                <FaCloudSun size={25} />
             </div>
 
             {/* Marquee */}
@@ -47,16 +57,10 @@ const Header = () => {
             </div>
 
             {/* Navigation */}
-            <nav className='flex gap-3 bg-slate-900 text-white justify-center py-2 mt-5 uppercase text-sm font-bold'>
-                {
-                    categories.map(category => <p
-                        key={category.id}
-                    >
-                        <Link
-                            to={`/category/${category.id}`}
-                        >{category.name}</Link>
-                    </p>)
-                }
+            <nav className='flex gap-3 lg:gap-5 bg-slate-900 text-white justify-center py-3 mt-5 uppercase text-xs lg:text-sm font-bold shadow'>
+                <Link className='hover:text-orange-600' to='/'>Home</Link>
+                <Link className='hover:text-orange-600' to='/resources'>Resources</Link>
+                <Link className='hover:text-orange-600' to='/policy'>Privacy & Policy</Link>
             </nav>
         </>
     );
