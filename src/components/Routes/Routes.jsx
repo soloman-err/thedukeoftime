@@ -7,6 +7,7 @@ import Sports from "../Categories/Sports";
 import Tech from "../Categories/Tech";
 import World from "../Categories/World";
 import Root from "../Layout/Root";
+import Category from "../Pages/Category";
 import Home from "../Pages/Home";
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/category/:id',
+                element: <Category></Category>
             },
             {
                 path: 'world',
