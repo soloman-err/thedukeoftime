@@ -7,9 +7,9 @@ import RightNav from '../Shared/RightNav';
 
 const Root = () => {
     return (
-        <div className='w-[90%] lg:w-[70%] mx-auto'>
+        <div className='w-[90%] lg:w-[70%] mx-auto pb-10 min-h-screen relative'>
             <Header></Header>
-            <section className='flex flex-col md:flex md:flex-row gap-3 text-center mt-5'>
+            <section className='flex flex-col md:flex md:flex-row gap-3 text-center mt-5 mb-10'>
                 <div className='md:w-[20%] order-1 md:order-1'>
                     <LeftNav></LeftNav>
                 </div>

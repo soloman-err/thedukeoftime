@@ -21,7 +21,7 @@ const LeftNav = () => {
                     >
                         <Link
                             to={`/category/${category.id}`}
-                            className='border w-full flex justify-start px-2'
+                            className='border w-full flex justify-start px-2 hover:shadow'
                         >{category.name}</Link>
                     </p>)
                 }

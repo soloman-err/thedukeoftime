@@ -9,12 +9,12 @@ const RightNav = () => {
                 <h4 className='text-start font-bold
             '>Login with</h4>
                 <div className='space-y-1'>
-                    <button className='border w-full flex items-center justify-center gap-1 text-sm p-1'>
+                    <button className='border w-full flex items-center justify-center gap-1 text-sm p-1 hover:shadow'>
                         <FaGoogle />
                         Login with Google
                     </button>
                     {/* <br /> */}
-                    <button className='border w-full flex items-center justify-center gap-1 text-sm p-1'>
+                    <button className='border w-full flex items-center justify-center gap-1 text-sm p-1 hover:shadow'>
                         <FaGithub />
                         Login with Github
                     </button>
