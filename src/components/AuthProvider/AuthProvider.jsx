@@ -1,29 +1,23 @@
-import React, { useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { getAuth, signInWithPopup } from "firebase/auth";
+import app from '../../firebase/firebase';
 
-
-export const AuthContext = useContext(null);
+export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
+    // Google Authentication:
+    const googleSignIn = (provider) => {
+        return signInWithPopup(auth, provider);
+    }
 
-    // Sign-in with popup:
-    // signInWithPopup(auth, provider)
-    //     .then((result) => {
-    //         const loggedUser = result.user;
-    //         setUser(loggedUser);
-
-    //         console.log(loggedUser);
-    //     })
-    //     .catch((error) => {
-    //         console.log(error);
-    //     })
 
     const authInfo = {
-        user
+        user,
+        googleSignIn
     }
 
     return (

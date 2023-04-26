@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     return (
         <div>
-            <div className='w-[90%] md:w-[40%] lg:w-[30%] mx-auto space-y-6 border border-slate-500 py-10 px-5 mt-20'>
+            <div className='w-[80%] sm:w-[60%] md:w-[40%] lg:w-[30%] mx-auto space-y-6 border border-slate-500 py-8 md:py-10 px-5 mt-10 mb-20'>
                 <h4 className='text-center font-bold text-2xl border-b shadow'>Please Register!</h4>
                 <form className='space-y-3'>
                     <div className='flex flex-col'>

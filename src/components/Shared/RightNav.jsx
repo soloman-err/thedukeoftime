@@ -1,15 +1,32 @@
-import React from 'react';
-import { Fa500Px, FaFacebook, FaGithub, FaGithubAlt, FaGoogle, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
+import { FaFacebook, FaGithub, FaGoogle, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+
 
 const RightNav = () => {
+    const { googleSignIn } = useContext(AuthContext);
+    const provider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(provider)
+            .then((result) => {
+                const loggedUser = result.user
+                console.log(loggedUser);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
     return (
         <div className='space-y-3 md:sticky md:top-1'>
             <div>
                 <h4 className='text-start font-bold
             '>Login with</h4>
                 <div className='space-y-1'>
-                    <button className='border w-full flex items-center justify-center gap-1 text-sm p-1 hover:shadow'>
+                    <button onClick={handleGoogleSignIn} className='border w-full flex items-center justify-center gap-1 text-sm p-1 hover:shadow'>
                         <FaGoogle />
                         Login with Google
                     </button>

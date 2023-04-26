@@ -2,10 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    }
+
     return (
-        <div className='w-[90%] md:w-[40%] lg:w-[30%] mx-auto space-y-6 border border-slate-500 py-10 px-5 mt-20'>
+        <div className='w-[60%] md:w-[40%] lg:w-[30%] mx-auto space-y-6 border border-slate-500 py-10 px-5 my-10'>
             <h4 className='text-center font-bold text-2xl border-b shadow'>Please Login!</h4>
-            <form className='space-y-3'>
+            <form onChange={handleLogin} className='space-y-3'>
                 <div className='flex flex-col'>
                     <label htmlFor="email">Email</label>
                     <input className='p-1 border border-slate-500' type="email" name="email" placeholder="Enter email" required />
@@ -27,7 +35,7 @@ const Login = () => {
                     </Link>
                 </small>
             </div>
-        </div>
+        </div >
     );
 };
 

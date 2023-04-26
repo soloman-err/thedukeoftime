@@ -5,3 +5,7 @@
 .trending-btn{
     clip-path: polygon(0% 0%, 90% 0%, 100% 20%, 100% 100%, 0% 100%);
 }
+
+.news-tag{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 70% 100%, 0% 100%);
+}
